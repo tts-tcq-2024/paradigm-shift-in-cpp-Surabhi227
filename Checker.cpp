@@ -1,22 +1,23 @@
 #include <assert.h>
 #include <iostream>
 using namespace std;
-
-bool batteryIsOk(float temperature, float soc, float chargeRate) {
-  if(temperature < 0 || temperature > 45) {
-    cout << "Temperature out of range!\n";
-    return false;
-  } else if(soc < 20 || soc > 80) {
-    cout << "State of Charge out of range!\n";
-    return false;
-  } else if(chargeRate > 0.8) {
-    cout << "Charge Rate out of range!\n";
+ 
+bool CheckInRange(float value, float min, float max, const char* message) {
+  if (value < min || value > max) {
+    cout << message << endl;
     return false;
   }
   return true;
 }
-
+ 
+bool BatteryIsOk(float temperature, float soc, float chargeRate) {
+  bool temperatureOk = CheckInRange(temperature, 0, 45, "Temperature out of range!");
+  bool socOk = CheckInRange(soc, 20, 80, "State of Charge out of range!");
+  bool chargeRateOk = CheckInRange(chargeRate, 0, 0.8, "Charge Rate out of range!");
+  return temperatureOk && socOk && chargeRateOk;
+}
+ 
 int main() {
-  assert(batteryIsOk(25, 70, 0.7) == true);
-  assert(batteryIsOk(50, 85, 0) == false);
+  assert(BatteryIsOk(25, 70, 0.7) == true);
+  assert(BatteryIsOk(50, 85, 0) == false);
 }
