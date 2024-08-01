@@ -1,4 +1,5 @@
 #include "Language.h"
+#include <string>
 #include <map>
 
 // Define messages and language
