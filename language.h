@@ -1,13 +1,11 @@
-#ifndef LANGUAGE_H
-#define LANGUAGE_H
+#ifndef MESSAGES_H
+#define MESSAGES_H
 
+#include <map>
 #include <string>
+#include "BatteryMonitor.h"
 
-enum Language { ENGLISH, GERMAN };
+// Define message mappings
+extern std::map<Language, std::map<std::string, std::string>> messages;
 
-extern Language currentLanguage;
-
-void InitializeErrorMessages();
-const char* GetErrorMessage(const char* messageKey);
-
-#endif 
+#endif // MESSAGES_H
