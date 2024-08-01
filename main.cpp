@@ -8,8 +8,8 @@ void RunTests() {
     currentLanguage = ENGLISH;
     // Valid cases
     assert(BatteryIsOk(25, 70, 0.7) == true);
-    assert(BatteryIsOk(0, 20, 0) == true); // Edge case: lower boundary
-    assert(BatteryIsOk(45, 80, 0.8) == true); // Edge case: upper boundary
+    assert(BatteryIsOk(0, 20, 0) == true); 
+    assert(BatteryIsOk(45, 80, 0.8) == true); 
     
     // Warnings
     assert(BatteryIsOk(4, 50, 0.5) == true); // Approaching low temperature warning
@@ -27,8 +27,8 @@ void RunTests() {
     currentLanguage = GERMAN;
     // Valid cases
     assert(BatteryIsOk(25, 70, 0.7) == true);
-    assert(BatteryIsOk(0, 20, 0) == true); // Edge case: lower boundary
-    assert(BatteryIsOk(45, 80, 0.8) == true); // Edge case: upper boundary
+    assert(BatteryIsOk(0, 20, 0) == true); 
+    assert(BatteryIsOk(45, 80, 0.8) == true); 
     
     // Warnings
     assert(BatteryIsOk(4, 50, 0.5) == true); // Approaching low temperature warning

@@ -3,7 +3,6 @@
 #include <iostream>
 #include <string>
 
-// Constants definitions
 const float TEMP_MIN = 0;
 const float TEMP_MAX = 45;
 const float SOC_MIN = 20;
@@ -12,8 +11,6 @@ const float CHARGE_RATE_MIN = 0;
 const float CHARGE_RATE_MAX = 0.8;
 const float WARNING_TOLERANCE = 0.05;
 
-
-// Helper functions
 bool IsOutOfRange(float value, float min, float max) {
     return value < min || value > max;
 }
