@@ -3,6 +3,7 @@
 
 #include <string>
 #include <map>
+#include "Language.h" 
 
 // Define constants
 extern const float TEMP_MIN;
