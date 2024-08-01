@@ -58,3 +58,7 @@ Shorten the Semantic distance
 - Functional to express relation between input and output
 - Object oriented to encapsulate state with actions
 - Apect oriented to capture repeating aspects
+
+## Added 2 additional requirements
+1. Early Warnings
+2. Language Addition
