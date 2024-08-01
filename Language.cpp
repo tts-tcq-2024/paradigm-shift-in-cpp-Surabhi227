@@ -1,4 +1,5 @@
 #include "Language.h"
+#include <map>
 
 // Define messages and language
 std::map<std::string, std::string> messages = {
