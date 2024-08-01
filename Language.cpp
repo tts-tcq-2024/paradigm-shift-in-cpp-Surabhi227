@@ -2,7 +2,6 @@
 #include <string>
 #include <map>
 
-// Define messages and language
 std::map<std::string, std::string> messages = {
     { "TEMP_LOW_WARNING", "Warning: Approaching low temperature" },
     { "TEMP_HIGH_WARNING", "Warning: Approaching high temperature" },
