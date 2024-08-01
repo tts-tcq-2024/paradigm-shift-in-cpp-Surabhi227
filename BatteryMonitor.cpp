@@ -25,29 +25,28 @@ void PrintMessage(const std::string& messageKey) {
     }
 }
 
-bool CheckWarnings(float value, float min, float max, float tolerance, 
-                   const std::string& lowWarningMsg, const std::string& highWarningMsg) {
-    bool hasWarning = false;
+bool CheckParameter(float value, float min, float max, float tolerance, 
+                    const std::string& breachMsg, const std::string& lowWarningMsg, 
+                    const std::string& highWarningMsg) {
+    if (IsOutOfRange(value, min, max)) {
+        PrintMessage(breachMsg);
+        return false;
+    }
     if (value < min + tolerance) {
         PrintMessage(lowWarningMsg);
-        hasWarning = true;
     }
     if (value > max - tolerance) {
         PrintMessage(highWarningMsg);
-        hasWarning = true;
     }
-    return hasWarning;
+    return true;
 }
 
 bool BatteryIsOk(float temperature, float soc, float chargeRate) {
-    bool temperatureOk = !IsOutOfRange(temperature, TEMP_MIN, TEMP_MAX) &&
-                         !CheckWarnings(temperature, TEMP_MIN, TEMP_MAX, TEMP_MAX * WARNING_TOLERANCE, 
-                                         "TEMP_LOW_WARNING", "TEMP_HIGH_WARNING");
-    bool socOk = !IsOutOfRange(soc, SOC_MIN, SOC_MAX) &&
-                 !CheckWarnings(soc, SOC_MIN, SOC_MAX, SOC_MAX * WARNING_TOLERANCE, 
-                                "SOC_LOW_WARNING", "SOC_HIGH_WARNING");
-    bool chargeRateOk = !IsOutOfRange(chargeRate, CHARGE_RATE_MIN, CHARGE_RATE_MAX) &&
-                        !CheckWarnings(chargeRate, CHARGE_RATE_MIN, CHARGE_RATE_MAX, CHARGE_RATE_MAX * WARNING_TOLERANCE, 
-                                       "CHARGE_RATE_WARNING", "CHARGE_RATE_WARNING");
+    bool temperatureOk = CheckParameter(temperature, TEMP_MIN, TEMP_MAX, TEMP_MAX * WARNING_TOLERANCE, 
+                                        "TEMP_BREACH", "TEMP_LOW_WARNING", "TEMP_HIGH_WARNING");
+    bool socOk = CheckParameter(soc, SOC_MIN, SOC_MAX, SOC_MAX * WARNING_TOLERANCE, 
+                                "SOC_BREACH", "SOC_LOW_WARNING", "SOC_HIGH_WARNING");
+    bool chargeRateOk = CheckParameter(chargeRate, CHARGE_RATE_MIN, CHARGE_RATE_MAX, CHARGE_RATE_MAX * WARNING_TOLERANCE, 
+                                       "CHARGE_RATE_BREACH", "CHARGE_RATE_WARNING", "CHARGE_RATE_WARNING");
     return temperatureOk && socOk && chargeRateOk;
 }
