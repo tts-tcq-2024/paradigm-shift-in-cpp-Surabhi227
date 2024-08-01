@@ -5,10 +5,6 @@
 #include <map>
 #include <string>
 
-// Global variable for language setting
-enum Language { ENGLISH, GERMAN };
-extern Language currentLanguage = ENGLISH;
-
 // Function declarations
 bool CheckInRange(float value, float min, float max, float tolerance,
                   const std::string& breachMsg, const std::string& lowWarningMsg,
