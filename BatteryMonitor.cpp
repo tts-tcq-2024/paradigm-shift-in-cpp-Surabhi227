@@ -1,6 +1,7 @@
 #include "BatteryMonitor.h"
 #include "Language.h"
 #include <iostream>
+#include <string>
 
 // Constants definitions
 const float TEMP_MIN = 0;
