@@ -1,5 +1,14 @@
 #include "language.h"
 
+// Define boundaries and messages
+const float TEMP_MIN = 0;
+const float TEMP_MAX = 45;
+const float SOC_MIN = 20;
+const float SOC_MAX = 80;
+const float CHARGE_RATE_MIN = 0;
+const float CHARGE_RATE_MAX = 0.8;
+
+const float WARNING_TOLERANCE = 0.05;
 
 std::map<Language, std::map<std::string, std::string>> messages = {
     {ENGLISH, {
