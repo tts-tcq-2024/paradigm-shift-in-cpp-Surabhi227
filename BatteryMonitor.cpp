@@ -12,9 +12,6 @@ const float CHARGE_RATE_MIN = 0;
 const float CHARGE_RATE_MAX = 0.8;
 const float WARNING_TOLERANCE = 0.05;
 
-// Message maps and current language
-std::map<std::string, std::string> messages;
-Language currentLanguage = ENGLISH;
 
 // Helper functions
 bool IsOutOfRange(float value, float min, float max) {
