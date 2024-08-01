@@ -1,4 +1,5 @@
 #include "BatteryMonitor.h"
+#include "Language.h"
 #include <iostream>
 
 // Constants definitions
