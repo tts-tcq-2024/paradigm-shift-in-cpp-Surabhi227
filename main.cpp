@@ -1,6 +1,7 @@
 #include "BatteryMonitor.h"
 #include "Language.h"
 #include <cassert>
+#include <iostream>
 
 void RunTests() {
     // English tests
