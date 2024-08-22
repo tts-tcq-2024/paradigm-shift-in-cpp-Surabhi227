@@ -1,4 +1,4 @@
-#include "battery_check.h"
+#include "battery_monitor.h"
 #include <cassert>
  
 void testBatteryCheck() {
